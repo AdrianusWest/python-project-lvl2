@@ -33,9 +33,9 @@ def _stringify(data, replacer=' ', spaces_count=4, indent_size=0):
         inner_tokens = (f'{indent}{key}: {helper(value, depth + 1)}'
                         for key, value in data.items())
 
-        right_brace_indent = replacer * ((depth - 1) *
-                                         spaces_count +
-                                         indent_size)
+        right_brace_indent = replacer * ((depth - 1)
+                                         * spaces_count
+                                         + indent_size)
         tokens = ['{', *inner_tokens,
                   f'{right_brace_indent}}}']
         return "\n".join(tokens)
