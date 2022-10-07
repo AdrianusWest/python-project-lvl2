@@ -2,16 +2,15 @@ def _stringify_primitive_value(value):
     special_values = {
         'True': 'true',
         'False': 'false',
-        'None': 'null'
+        'None': 'null',
     }
     str_value = str(value)
     return special_values.get(str_value, str_value)
 
 
 def _stringify(data, replacer=' ', spaces_count=4, indent_size=0):
-    """
-    Преобразует любое примитивное значение или стандартную коллекцию,
-    включая словарь в специальную строку формата
+    """Преобразует любое примитивное значение или стандартную коллекцию,
+    включая словарь в специальную строку формата.
 
     Аргументы:
         данные для структуризации: любое примитивное значение или
@@ -23,6 +22,7 @@ def _stringify(data, replacer=' ', spaces_count=4, indent_size=0):
 
     Возвращает:
         Строка специального формата, представляющая данные
+
     """
 
     def helper(data, depth):
@@ -33,8 +33,9 @@ def _stringify(data, replacer=' ', spaces_count=4, indent_size=0):
         inner_tokens = (f'{indent}{key}: {helper(value, depth + 1)}'
                         for key, value in data.items())
 
-        right_brace_indent = \
-            replacer * ((depth - 1) * spaces_count + indent_size)
+        right_brace_indent = replacer * ((depth - 1) *
+                                         spaces_count +
+                                         indent_size)
         tokens = ['{', *inner_tokens,
                   f'{right_brace_indent}}}']
         return "\n".join(tokens)
@@ -43,8 +44,7 @@ def _stringify(data, replacer=' ', spaces_count=4, indent_size=0):
 
 
 def gen_stylish_diff(dicts_diff: dict) -> str:
-    """
-    Возвращает специальным образом отформатированное json-подобное
+    """Возвращает специальным образом отформатированное json-подобное
     текстовое представление данного dicts diff файла.
 
     Аргументы:
@@ -54,6 +54,7 @@ def gen_stylish_diff(dicts_diff: dict) -> str:
     Возвращает:
         Специально отформатированное json-подобное текстовое
         представление dicts_diff.
+
     """
 
     def helper(dict_value, depth):
@@ -81,7 +82,7 @@ def gen_stylish_diff(dicts_diff: dict) -> str:
                 continue
 
             change_status_sign = {
-                'added': '+', 'deleted': '-', 'unchanged': ' '
+                'added': '+', 'deleted': '-', 'unchanged': ' ',
             }[status]
             value_str = _stringify(content, indent_size=deep_indent_size)
             tokens.append(

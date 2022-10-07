@@ -1,5 +1,6 @@
 from gendiff.formatters.plain import _stringify
 from gendiff.formatters.plain import _upd_path
+
 from tests.fixtures.expected_dicts import NESTED_DICT_1
 
 

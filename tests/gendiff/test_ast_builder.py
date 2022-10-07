@@ -1,5 +1,6 @@
-from gendiff.ast_builder import set_dict_value
 from gendiff.ast_builder import build_ast
+from gendiff.ast_builder import set_dict_value
+
 from tests.fixtures.expected_dicts import NESTED_DICT_1
 from tests.fixtures.expected_dicts import NESTED_DICT_2
 from tests.fixtures.expected_dicts import NESTED_DIFF_DICT_12

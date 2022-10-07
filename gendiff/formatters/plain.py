@@ -4,7 +4,7 @@ def _stringify(data):
     special_values = {
         'True': 'true',
         'False': 'false',
-        'None': 'null'
+        'None': 'null',
     }
     str_value = str(data)
     if isinstance(data, str):
@@ -17,9 +17,8 @@ def _upd_path(path, new_token):
 
 
 def gen_plain_diff(dicts_diff: dict) -> str:    # noqa: C901
-    """
-     Возвращает специальным образом отформатированное "простое"
-     текстовое представление данного dicts diff файла.
+    """Возвращает специальным образом отформатированное "простое"
+    текстовое представление данного dicts diff файла.
 
     Аргументы:
         dicts_diff: Словарь специального формата, описывающий
@@ -28,8 +27,8 @@ def gen_plain_diff(dicts_diff: dict) -> str:    # noqa: C901
     Возвращает:
         Специально отформатированное "простое" текстовое
         представление dicts_diff.
-    """
 
+    """
     lines = []
 
     def helper(dict_value, path):

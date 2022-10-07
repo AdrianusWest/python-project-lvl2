@@ -44,7 +44,7 @@ NESTED_DIFF_DICT_12 = {
         'nest': ('changed', ({'key': 'value'}, 'str')),
     },
     'group2': ('deleted', {'abc': 12345, 'deep': {'id': 45}}),
-    'group3': ('added', {'deep': {'id': {'number': 45}}, 'fee': 100500})
+    'group3': ('added', {'deep': {'id': {'number': 45}}, 'fee': 100500}),
 }
 
 NESTED_DIFF_DICT_21 = {
@@ -69,5 +69,5 @@ NESTED_DIFF_DICT_21 = {
         'nest': ('changed', ('str', {'key': 'value'})),
     },
     'group2': ('added', {'abc': 12345, 'deep': {'id': 45}}),
-    'group3': ('deleted', {'deep': {'id': {'number': 45}}, 'fee': 100500})
+    'group3': ('deleted', {'deep': {'id': {'number': 45}}, 'fee': 100500}),
 }

@@ -1,7 +1,7 @@
 def set_dict_value(d: dict, path: tuple, value):
-    """
-    В заданном словаре изменяет (или добавляет) значение в указанном
+    """В заданном словаре изменяет (или добавляет) значение в указанном
     пути. Функция изменяет словарь.
+
     """
     if len(path) != 0:
         current = d
@@ -13,11 +13,11 @@ def set_dict_value(d: dict, path: tuple, value):
 
 
 def build_ast(dict_old: dict, dict_new: dict) -> dict:  # noqa: C901
-    """
-    AST - специальный формат дифф-словаря, который описывает,
+    """AST - специальный формат дифф-словаря, который описывает,
     что произошло с каждым ключом в сравниваемых словарях:
-    был ли он добавлен, изменен или удален, а также соответствующие
+    был ли он добавлен, изменен или удалён, а также соответствующие
     значения словаря.
+
     """
     diff_dict = {}
 
@@ -51,5 +51,5 @@ def build_ast(dict_old: dict, dict_new: dict) -> dict:  # noqa: C901
                 set_dict_value(diff_dict, path + (key,),
                                ('unchanged', value_old))
 
-    helper(dict_old, dict_new, tuple())
+    helper(dict_old, dict_new, ())
     return diff_dict
