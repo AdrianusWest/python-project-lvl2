@@ -2,7 +2,7 @@ import json
 
 from gendiff.parser import get_data
 from gendiff.parser import get_file_extension
-from gendiff.parser import get_file_reader
+from gendiff.parser import parse
 
 import yaml
 
@@ -33,10 +33,10 @@ def test_stringify_value():
 
 
 def test_get_file_reader():
-    assert get_file_reader('/home/user/Projects/script.py') is None
-    assert get_file_reader(r'C:\python3\data.json') == json.load
-    assert get_file_reader('file.yml') == yaml.safe_load
-    assert get_file_reader('/home/user/data/info.yaml') == yaml.safe_load
+    assert parse('/home/user/Projects/script.py') is None
+    assert parse(r'C:\python3\data.json') == json.load
+    assert parse('file.yml') == yaml.safe_load
+    assert parse('/home/user/data/info.yaml') == yaml.safe_load
 
 
 def test_get_dict_from_datafile():

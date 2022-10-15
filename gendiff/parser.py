@@ -1,6 +1,5 @@
 import json
 import pathlib
-from types import MethodType
 
 import yaml
 
@@ -9,12 +8,14 @@ def get_file_extension(file_path: str) -> str:
     return pathlib.Path(file_path).suffix
 
 
-def get_file_reader(file_path: str) -> MethodType:
-    return {
-        '.json': json.load,
-        '.yaml': yaml.safe_load,
-        '.yml': yaml.safe_load,
-    }.get(get_file_extension(file_path))
+def parse(data, extension: str) -> dict:
+    if extension == 'json':
+        return json.load(data)
+    if extension == 'yaml':
+        return yaml.safe_load(data)
+    if extension == 'yml':
+        return yaml.safe_load(data)
+    # raise ValueError(f'Unknown extension: {extension}!')
 
 
 def get_data(file_path: str) -> dict:
@@ -26,7 +27,6 @@ def get_data(file_path: str) -> dict:
         словарь-представление данного файла
 
     """
-    reader = get_file_reader(file_path)
-    if reader:
-        with open(file_path) as f:
-            return reader(f)
+    extension = get_file_extension(file_path)
+    with open(file_path) as data:
+        return parse(data, extension)

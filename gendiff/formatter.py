@@ -8,3 +8,4 @@ def formatting(tree: dict, format_name: str):
         return gen_stylish_diff(tree)
     if format_name == 'json':
         return gen_json_diff(tree)
+    raise ValueError(f'Unknown format: {format_name}!')
