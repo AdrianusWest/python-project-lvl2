@@ -15,7 +15,7 @@ def parse(data, extension: str) -> dict:
         return yaml.safe_load(data)
     if extension == 'yml':
         return yaml.safe_load(data)
-    # raise ValueError(f'Unknown extension: {extension}!')
+    raise ValueError(f'Unknown extension:{extension}!')
 
 
 def get_data(file_path: str) -> dict:
