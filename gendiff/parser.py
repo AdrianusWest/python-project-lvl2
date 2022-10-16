@@ -9,11 +9,11 @@ def get_file_extension(file_path: str) -> str:
 
 
 def parse(data, extension: str) -> dict:
-    if extension == 'json':
+    if extension == '.json':
         return json.load(data)
-    if extension == 'yaml':
+    if extension == '.yaml':
         return yaml.safe_load(data)
-    if extension == 'yml':
+    if extension == '.yml':
         return yaml.safe_load(data)
 
     raise ValueError(f'Unknown extension:{extension}!')
